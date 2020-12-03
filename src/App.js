@@ -1,11 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import Fcomponent from './Fcomponent'
+import Ccomponent from './Ccomponent'
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        {/* <Fcomponent name="Sergey" /> */}
+        <Ccomponent number="42" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -19,7 +21,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
