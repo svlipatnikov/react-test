@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 
+// const classDone = {
+//   textDecoration: 'line-through',
+// }
+
 export default class ToDoItem extends Component {
   delToDOItem = (event) => {
     event.preventDefault()
@@ -19,9 +23,15 @@ export default class ToDoItem extends Component {
           checked={this.props.todo.done}
           onChange={this.changeDone}
         />
-        <div className="Todo-item-text">
+
+        <div
+          className={
+            this.props.todo.done ? 'Todo-item-text todo-done' : 'Todo-item-text'
+          }
+        >
           {this.props.number + '. ' + this.props.todo.text}
         </div>
+
         <button className="Todo-item-Xbutton" onClick={this.delToDOItem}>
           X
         </button>
