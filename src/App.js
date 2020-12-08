@@ -1,6 +1,7 @@
 import './App.css'
-// import Counter from './Counter'
-import ToDoApp from './ToDoApp'
+// import Counter from './SimpleCounter/Counter'
+// import ToDoApp from './TodoCcomponent/ToDoApp'
+import ToDoApp from './TodoFcomponent/TodoApp'
 
 function App() {
   return (
