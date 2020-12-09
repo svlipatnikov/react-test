@@ -5,7 +5,8 @@ const listStyles = {
   listStyle: 'none',
   margin: 0,
   padding: 0,
-  fontSize: 25,
+  fontSize: '1.5rem',
+  textAlign: 'left',
 }
 
 export default function TodoList({ todoArr, delTodo, doneTodo }) {

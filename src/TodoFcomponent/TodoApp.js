@@ -13,10 +13,9 @@ export default function TodoApp() {
     setTodoArr((lastArr) => lastArr.filter((todo, index) => id !== index))
   }
 
-  function doneTodo(id, doneFlag) {
-    let newArr = todoArr
-    newArr[id].done = doneFlag
-    console.log(newArr)
+  function doneTodo(id) {
+    const newArr = [...todoArr]
+    newArr[id].done = !newArr[id].done
     setTodoArr(newArr)
   }
 

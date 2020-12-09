@@ -1,5 +1,10 @@
 import React, { useState } from 'react'
 
+const formStyle = {
+  display: 'flex',
+  justifyContent: 'center',
+}
+
 export default function Form({ addNewTodo }) {
   const [inputText, setInputText] = useState('')
 
@@ -16,9 +21,11 @@ export default function Form({ addNewTodo }) {
   }
 
   return (
-    <form onSubmit={submit}>
+    <form onSubmit={submit} style={formStyle}>
       <input value={inputText} onChange={getInputText}></input>
-      <button>Add todo</button>
+      <button>
+        <b>Add todo</b>
+      </button>
     </form>
   )
 }
