@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import Form from './Form'
 import TodoList from './TodoList'
+import { TodoContext } from './context'
 
 export default function Todo3() {
-  const [todoArr, setTodoArr] = useState([{ text: 'todo1', done: false }])
+  const [todoArr, setTodoArr] = useState([])
 
   const delTodo = (id) => {
     setTodoArr((lastArr) => lastArr.filter((todo, index) => id !== index))
@@ -20,9 +21,11 @@ export default function Todo3() {
   }
 
   return (
-    <div>
-      <Form addTodo={addTodo} />
-      <TodoList todoArr={todoArr} delTodo={delTodo} doneTodo={doneTodo} />
-    </div>
+    <TodoContext.Provider value={{ delTodo, doneTodo }}>
+      <>
+        <Form addTodo={addTodo} />
+        <TodoList todoArr={todoArr} />
+      </>
+    </TodoContext.Provider>
   )
 }

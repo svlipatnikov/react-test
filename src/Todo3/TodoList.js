@@ -8,19 +8,11 @@ const listStyles = {
   width: '400px',
 }
 
-export default function TodoList({ todoArr, delTodo, doneTodo }) {
+export default function TodoList({ todoArr }) {
   return (
     <ul style={listStyles}>
       {todoArr.map((todo, index) => {
-        return (
-          <TodoItem
-            todo={todo}
-            index={index}
-            key={index}
-            delTodo={delTodo}
-            doneTodo={doneTodo}
-          />
-        )
+        return <TodoItem todo={todo} index={index} key={index} />
       })}
     </ul>
   )

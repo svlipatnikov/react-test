@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { TodoContext } from './context'
 
 const todoStyles = {
   border: '1px none #ccc',
@@ -13,7 +14,9 @@ const doneStyle = {
   textDecoration: 'line-through',
 }
 
-export default function todoItem({ todo, index, delTodo, doneTodo }) {
+export default function TodoItem({ todo, index }) {
+  const { delTodo, doneTodo } = useContext(TodoContext)
+
   return (
     <li style={todoStyles}>
       <span style={todo.done ? doneStyle : {}}>
