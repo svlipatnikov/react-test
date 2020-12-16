@@ -1,10 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Form from './Form'
 import TodoList from './TodoList'
 import { TodoContext } from './context'
 
 export default function Todo3() {
   const [todoArr, setTodoArr] = useState([])
+
+  //ComponentDidMount
+  useEffect(() => {
+    const lsTodos = localStorage.getItem('todos') || JSON.stringify([])
+    setTodoArr(JSON.parse(lsTodos))
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todoArr))
+  }, [todoArr])
 
   const delTodo = (id) => {
     setTodoArr((lastArr) => lastArr.filter((todo, index) => id !== index))
