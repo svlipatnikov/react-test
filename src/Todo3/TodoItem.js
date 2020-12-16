@@ -15,7 +15,7 @@ const doneStyle = {
 }
 
 export default function TodoItem({ todo, index }) {
-  const { delTodo, doneTodo } = useContext(TodoContext)
+  const { dispatch } = useContext(TodoContext)
 
   return (
     <li style={todoStyles}>
@@ -23,11 +23,13 @@ export default function TodoItem({ todo, index }) {
         <input
           type="checkbox"
           checked={todo.done}
-          onChange={() => doneTodo(index)}
+          onChange={() => dispatch({ type: 'done', payload: index })}
         ></input>
         {(index + 1, '. ' + todo.text)}
       </span>
-      <button onClick={() => delTodo(index)}>X</button>
+      <button onClick={() => dispatch({ type: 'delete', payload: index })}>
+        X
+      </button>
     </li>
   )
 }
