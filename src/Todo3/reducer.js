@@ -4,18 +4,21 @@ export default function (state, action) {
       return state
 
     case 'done':
-      const newArr = [...state]
-      newArr.forEach((todo, id) => {
-        if (todo[id] === action.payload) {
-          todo[id] = !todo[id]
+      // const newArr = [...state]
+      // newArr[action.payload].done = !newArr[action.payload].done
+      // return newArr
+      return state.map((todo, id) => {
+        console.log(id, todo)
+        if (id === action.payload) {
+          todo.done = !todo.done
         }
+        return todo
       })
-      return newArr
 
     case 'delete':
       return state.filter((todo, id) => id !== action.payload)
 
     case 'addTodo':
-      return [...state, { done: false, text: action.payload }]
+      return [...state, { text: action.payload, done: false }]
   }
 }

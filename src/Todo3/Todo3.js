@@ -39,7 +39,7 @@ export default function Todo3() {
   return (
     <TodoContext.Provider value={{ dispatch }}>
       <>
-        <Form addTodo={dispatch} />
+        <Form dispatch={dispatch} />
         <TodoList todoArr={todoArr} />
       </>
     </TodoContext.Provider>

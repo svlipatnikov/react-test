@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 
-export default function Form({ addTodo }) {
+export default function Form({ dispatch }) {
   const [inputText, setInputText] = useState('')
 
   const submit = (e) => {
     e.preventDefault()
-    addTodo(inputText)
+    dispatch({ type: 'addTodo', payload: inputText })
     setInputText('')
   }
 
