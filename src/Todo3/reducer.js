@@ -9,9 +9,7 @@ export default function (state, action) {
       // return newArr
       return state.map((todo, id) => {
         console.log(id, todo)
-        if (id === action.payload) {
-          todo.done = !todo.done
-        }
+        if (id === action.payload) todo.done = !todo.done
         return todo
       })
 
