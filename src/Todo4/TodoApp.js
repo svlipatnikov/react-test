@@ -5,16 +5,11 @@ import reducer from './reduser'
 
 export default function TodoApp() {
   const [input, setInput] = useState('')
-  // const [todoArr, setTodoArr] = useState([])
+
   const [todoArr, dispatch] = useReducer(
     reducer,
     JSON.parse(localStorage.getItem('todos'))
   )
-
-  // useEffect(() => {
-  //   const raw = localStorage.getItem('todos')
-  //   setTodoArr(JSON.parse(raw))
-  // }, [])
 
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todoArr) || JSON.stringify([]))
